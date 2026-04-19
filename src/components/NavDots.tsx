@@ -7,13 +7,7 @@ interface Props {
 }
 
 const NavDots: React.FC<Props> = ({ total, current, onNavigate }) => (
-  <div style={{
-    position: "fixed", bottom: 28, left: "50%", transform: "translateX(-50%)",
-    display: "flex", gap: 8, alignItems: "center", zIndex: 9000,
-    background: "rgba(8,8,15,0.6)", backdropFilter: "blur(12px)",
-    padding: "8px 16px", borderRadius: 99,
-    border: "1px solid rgba(255,255,255,0.07)",
-  }}>
+  <div className="nav-dots-wrap">
     {Array.from({ length: total }).map((_, i) => (
       <button
         key={i}

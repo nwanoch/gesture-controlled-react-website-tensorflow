@@ -37,10 +37,10 @@ const AboutPage: React.FC = () => (
     <div className="orb" style={{ width: 300, height: 300, background: "#06b6d4", bottom: 0, left: 0 }} />
 
     <div className="page-scroll" style={{ position: "relative", zIndex: 1 }}>
-      <div style={{ maxWidth: 1000, margin: "0 auto", padding: "80px 40px" }}>
+      <div className="page-inner">
 
         {/* ── Hero ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", marginBottom: 80 }}>
+        <div className="r-split" style={{ marginBottom: 80 }}>
           <div>
             <p style={{ fontSize: 12, letterSpacing: 4, textTransform: "uppercase", color: "#a855f7", marginBottom: 16 }}>About the Project</p>
             <h2 style={{ fontSize: "clamp(32px,5vw,56px)", fontWeight: 900, lineHeight: 1.1, marginBottom: 24 }}>
@@ -56,7 +56,7 @@ const AboutPage: React.FC = () => (
             </p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            <div className="r-grid-2" style={{ gap: 12 }}>
               {stats.map(s => (
                 <div key={s.label} className="glass" style={{ borderRadius: 16, padding: "24px 20px", textAlign: "center" }}>
                   <div className="grad" style={{ fontSize: 32, fontWeight: 900, marginBottom: 6 }}>{s.value}</div>
@@ -71,7 +71,7 @@ const AboutPage: React.FC = () => (
         <div style={{ marginBottom: 80 }}>
           <p style={{ fontSize: 12, letterSpacing: 4, textTransform: "uppercase", color: "#06b6d4", marginBottom: 12, textAlign: "center" }}>Principles</p>
           <h3 style={{ fontSize: "clamp(24px,3.5vw,38px)", fontWeight: 900, textAlign: "center", marginBottom: 40 }}>What we stand for</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }}>
+          <div className="r-grid-4">
             {values.map(v => (
               <div key={v.title} className="glass" style={{ borderRadius: 16, padding: 24, textAlign: "center" }}>
                 <div style={{ fontSize: 32, marginBottom: 12 }}>{v.icon}</div>
@@ -86,7 +86,7 @@ const AboutPage: React.FC = () => (
         <div style={{ marginBottom: 80 }}>
           <p style={{ fontSize: 12, letterSpacing: 4, textTransform: "uppercase", color: "#a855f7", marginBottom: 12, textAlign: "center" }}>Stack</p>
           <h3 style={{ fontSize: "clamp(24px,3.5vw,38px)", fontWeight: 900, textAlign: "center", marginBottom: 40 }}>Technology in detail</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }}>
+          <div className="r-grid-3" style={{ gap: 16 }}>
             {tech.map(t => (
               <div key={t.name} className="glass" style={{ borderRadius: 16, padding: 24, borderColor: `${t.color}33` }}>
                 <span style={{ padding: "4px 12px", borderRadius: 99, fontSize: 12, fontWeight: 700, background: `${t.color}22`, color: t.color, display: "inline-block", marginBottom: 14 }}>

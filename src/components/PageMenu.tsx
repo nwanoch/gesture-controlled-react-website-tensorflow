@@ -197,7 +197,7 @@ const PageMenu: React.FC<Props> = ({
         </div>
 
         {/* ── Page cards ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, position: "relative" }}>
+        <div className="menu-page-grid">
           {pages.map((p, i) => {
             const isHovered = menuReady && hoveredIdx === i;
             const isActive  = currentPage === i;
@@ -281,7 +281,7 @@ const PageMenu: React.FC<Props> = ({
         </div>
 
         {/* ── Instructions ── */}
-        <div style={{ textAlign: "center", marginTop: 20, display: "flex", justifyContent: "center", gap: 28 }}>
+        <div className="menu-footer-hints">
           {[
             { icon: "☝️", text: "Point at page" },
             { icon: "✌️ 🖐", text: "Hold 3s to navigate" },

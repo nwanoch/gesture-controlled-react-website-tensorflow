@@ -426,14 +426,8 @@ const App: React.FC = () => {
 
       {/* Gesture HUD */}
       {hudText && (
-        <div style={{
-          position: "fixed", top: 20, left: 20, zIndex: 9000,
-          padding: "9px 18px", borderRadius: 99,
-          background: "rgba(8,8,15,0.85)", backdropFilter: "blur(12px)",
-          border: `1px solid ${hudActive ? "rgba(99,102,241,0.45)" : "rgba(255,255,255,0.08)"}`,
-          fontSize: 13, color: "rgba(255,255,255,0.6)",
-          display: "flex", alignItems: "center", gap: 10,
-          transition: "border-color 0.3s",
+        <div className={`app-hud ${hudActive ? "app-hud--active" : ""}`} style={{
+          borderColor: hudActive ? "rgba(99,102,241,0.45)" : "rgba(255,255,255,0.08)",
         }}>
           {hudText}
           {hudProgress > 0 && (
@@ -458,15 +452,9 @@ const App: React.FC = () => {
 
       {!showMenu && (
         <button
+          type="button"
           onClick={() => setShowMenu(true)}
-          style={{
-            position: "fixed", top: 20, right: cameraActive ? 228 : 20, zIndex: 9000,
-            padding: "8px 18px", borderRadius: 99,
-            border: "1px solid rgba(255,255,255,0.12)",
-            background: "rgba(8,8,15,0.8)", color: "rgba(255,255,255,0.7)",
-            fontSize: 13, fontWeight: 600, cursor: "pointer",
-            backdropFilter: "blur(12px)",
-          }}
+          className={`app-menu-btn ${cameraActive ? "app-menu-btn--with-cam" : ""}`}
         >
           ☰ Pages
         </button>
@@ -486,12 +474,7 @@ const App: React.FC = () => {
       />
 
       {showMenu && cameraActive && (
-        <div style={{
-          position: "fixed", bottom: 178, right: 20, zIndex: 10003,
-          fontSize: 11, letterSpacing: 2, textTransform: "uppercase",
-          color: "rgba(99,102,241,0.9)", fontWeight: 700,
-          display: "flex", alignItems: "center", gap: 6,
-        }}>
+        <div className="app-live-badge">
           <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#10b981", boxShadow: "0 0 6px #10b981", display: "inline-block" }} />
           Live · You
         </div>
