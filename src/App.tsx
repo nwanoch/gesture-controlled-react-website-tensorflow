@@ -381,7 +381,7 @@ const App: React.FC = () => {
   const hudProgress = palmHoldProg > 0 ? palmHoldProg : confirmProg;
 
   return (
-    <div style={{ width: "100vw", height: "100vh", overflow: "hidden", position: "relative" }}>
+    <div style={{ width: "100%", height: "100dvh", overflow: "hidden", position: "relative" }}>
 
       <div style={{
         position: "absolute", inset: 0,

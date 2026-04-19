@@ -40,7 +40,7 @@ const ContactPage: React.FC = () => {
           {/* ── Form + info ── */}
           <div className="r-split" style={{ gap: 40, marginBottom: 60 }}>
             {/* Form */}
-            <div className="glass" style={{ borderRadius: 24, padding: 36 }}>
+            <div className="glass" style={{ borderRadius: 24, padding: "clamp(20px, 4vw, 36px)" }}>
               {sent ? (
                 <div style={{ textAlign: "center", padding: "40px 0" }}>
                   <div style={{ fontSize: 64, marginBottom: 16 }}>🎉</div>
@@ -141,7 +141,7 @@ const ContactPage: React.FC = () => {
           </div>
 
           {/* ── Response time promise ── */}
-          <div style={{ textAlign: "center", padding: "40px 24px", borderRadius: 20, background: "linear-gradient(135deg,rgba(139,92,246,0.1),rgba(6,182,212,0.1))", border: "1px solid rgba(139,92,246,0.2)" }}>
+          <div style={{ textAlign: "center", padding: "40px var(--page-pad)", borderRadius: 20, background: "linear-gradient(135deg,rgba(139,92,246,0.1),rgba(6,182,212,0.1))", border: "1px solid rgba(139,92,246,0.2)" }}>
             <div style={{ fontSize: 40, marginBottom: 12 }}>⚡</div>
             <h3 style={{ fontSize: 22, fontWeight: 900, marginBottom: 8 }}>We respond fast</h3>
             <p style={{ color: "rgba(255,255,255,0.45)", fontSize: 15, maxWidth: 480, margin: "0 auto" }}>

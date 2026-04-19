@@ -54,7 +54,7 @@ const ServicesPage: React.FC = () => (
         <div className="r-grid-3" style={{ gap: 20, marginBottom: 80 }}>
           {services.map(s => (
             <div key={s.title} className="glass" style={{
-              borderRadius: 24, padding: 32, position: "relative", overflow: "hidden",
+              borderRadius: 24, padding: "clamp(20px, 4vw, 32px)", position: "relative", overflow: "hidden",
               border: s.hot ? `1px solid ${s.color}66` : "1px solid rgba(255,255,255,0.08)",
               display: "flex", flexDirection: "column",
             }}>

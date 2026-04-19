@@ -66,10 +66,10 @@ const HomePage: React.FC<Props> = ({ onStartCamera, modelStatus, cameraActive })
     <div className="page-wrap page-enter" style={{ background: "#08080f" }}>
       <div className="page-scroll">
         {/* ── Hero ─────────────────────────────────────── */}
-        <section style={{ position: "relative", minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "calc(var(--page-section-y) + env(safe-area-inset-top, 0px)) var(--page-pad) max(48px, env(safe-area-inset-bottom, 0px))" }}>
-          <div className="orb" style={{ width: 600, height: 600, background: "#6366f1", top: -200, left: -200 }} />
-          <div className="orb" style={{ width: 400, height: 400, background: "#a855f7", bottom: -100, right: -100 }} />
-          <div className="orb" style={{ width: 300, height: 300, background: "#06b6d4", top: "40%", right: "18%" }} />
+        <section style={{ position: "relative", minHeight: "100dvh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "calc(var(--page-section-y) + env(safe-area-inset-top, 0px)) var(--page-pad) max(48px, env(safe-area-inset-bottom, 0px))", overflow: "hidden" }}>
+          <div className="orb" style={{ width: "min(600px, 80vw)", height: "min(600px, 80vw)", background: "#6366f1", top: -200, left: -200 }} />
+          <div className="orb" style={{ width: "min(400px, 60vw)", height: "min(400px, 60vw)", background: "#a855f7", bottom: -100, right: -100 }} />
+          <div className="orb" style={{ width: "min(300px, 50vw)", height: "min(300px, 50vw)", background: "#06b6d4", top: "40%", right: "18%" }} />
 
           <div className="anim-slide-up glass" style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "8px 20px", borderRadius: 99, marginBottom: 28 }}>
             <span style={{ width: 8, height: 8, borderRadius: "50%", background: "#10b981", boxShadow: "0 0 8px #10b981", display: "inline-block" }} />
@@ -112,7 +112,7 @@ const HomePage: React.FC<Props> = ({ onStartCamera, modelStatus, cameraActive })
           <div className="anim-slide-up" style={{ display: "flex", gap: 12, marginTop: 52, flexWrap: "wrap", justifyContent: "center", animationDelay: "0.4s" }}>
             {gestures.map((g, i) => (
               <div key={g.label} className="glass" style={{
-                padding: "14px 20px", borderRadius: 14, minWidth: 160,
+                padding: "14px 20px", borderRadius: 14, minWidth: "min(160px, calc(100vw - 48px))",
                 borderColor: i === activeGesture ? "rgba(99,102,241,0.6)" : undefined,
                 background: i === activeGesture ? "rgba(99,102,241,0.12)" : undefined,
                 transition: "all 0.5s ease",
