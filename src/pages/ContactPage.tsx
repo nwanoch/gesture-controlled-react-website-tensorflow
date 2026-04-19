@@ -54,7 +54,7 @@ const ContactPage: React.FC = () => {
                 <>
                   <h3 style={{ fontWeight: 700, fontSize: 20, marginBottom: 24 }}>Send a message</h3>
                   <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                    <div className="r-grid-2" style={{ gap: 12 }}>
                       {[{ label: "First name", placeholder: "Jane" }, { label: "Last name", placeholder: "Smith" }].map(f => (
                         <div key={f.label}>
                           <label style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", display: "block", marginBottom: 6 }}>{f.label}</label>
@@ -127,7 +127,7 @@ const ContactPage: React.FC = () => {
           {/* ── Global offices ── */}
           <div style={{ marginBottom: 60 }}>
             <h3 style={{ fontSize: 22, fontWeight: 900, textAlign: "center", marginBottom: 28 }}>Global offices</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }}>
+            <div className="r-grid-3">
               {offices.map(o => (
                 <div key={o.city} className="glass" style={{ borderRadius: 16, padding: 24, textAlign: "center" }}>
                   <div style={{ fontSize: 40, marginBottom: 10 }}>{o.flag}</div>

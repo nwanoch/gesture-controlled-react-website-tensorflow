@@ -68,7 +68,8 @@ const FeaturesPage: React.FC = () => (
           <h3 style={{ fontSize: "clamp(24px,3.5vw,38px)", fontWeight: 900, textAlign: "center", marginBottom: 40 }}>
             How gestures compare to other inputs
           </h3>
-          <div className="glass compare-table-wrap" style={{ borderRadius: 20, overflow: "hidden" }}>
+          <div className="glass" style={{ borderRadius: 20, overflow: "hidden", padding: 0 }}>
+            <div className="compare-table-wrap">
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
@@ -90,6 +91,7 @@ const FeaturesPage: React.FC = () => (
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
 

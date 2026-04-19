@@ -306,10 +306,11 @@ html, body, #root {
   .app-hud {
     top: calc(12px + var(--safe-top));
     left: calc(12px + var(--safe-left));
-    right: calc(12px + var(--safe-right));
+    right: auto;
     font-size: 11px;
     padding: 8px 12px;
     border-radius: 14px;
+    max-width: min(300px, calc(100vw - 108px - var(--safe-left) - var(--safe-right)));
   }
 }
 
@@ -561,6 +562,10 @@ html, body, #root {
     gap: 12px;
     flex-direction: column;
   }
+}
+
+.menu-overlay h2 {
+  font-size: clamp(20px, 5vw, 26px);
 }
 
 .gallery-masonry {
