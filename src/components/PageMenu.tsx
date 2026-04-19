@@ -142,20 +142,21 @@ const PageMenu: React.FC<Props> = ({
 
   return (
     <div className="menu-overlay" onClick={onClose}>
-      <div onClick={e => e.stopPropagation()} style={{ width: "90%", maxWidth: 900, position: "relative" }}>
+      <button type="button" className="menu-close-btn" onClick={e => { e.stopPropagation(); onClose(); }} aria-label="Close menu">×</button>
+      <div onClick={e => e.stopPropagation()} className="menu-inner">
 
         {/* ── Header ── */}
-        <div style={{ textAlign: "center", marginBottom: 28 }}>
+        <div className="menu-header">
           <p style={{ fontSize: 12, letterSpacing: 4, textTransform: "uppercase", color: "rgba(99,102,241,0.8)", marginBottom: 8 }}>
             Navigate
           </p>
-          <h2 style={{ fontSize: 26, fontWeight: 800, background: "linear-gradient(135deg,#6366f1,#a855f7,#06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          <h2 style={{ fontWeight: 800, background: "linear-gradient(135deg,#6366f1,#a855f7,#06b6d4)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
             Where to?
           </h2>
 
           {/* Status line + 20s countdown ring */}
           <div style={{ marginTop: 12, display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-            <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", display: "flex", justifyContent: "center", alignItems: "center", gap: 8 }}>
+            <div className="menu-status-text">
               {!menuReady ? (
                 <>
                   <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#f59e0b", boxShadow: "0 0 8px #f59e0b", display: "inline-block" }} />
@@ -221,7 +222,7 @@ const PageMenu: React.FC<Props> = ({
 
                 {/* Progress ring — when ✌️ or 🖐 held */}
                 {isHovered && gestureHeld && prog > 0 && (
-                  <svg style={{ position: "absolute", top: 6, right: 6, transform: "rotate(-90deg)" }} width={48} height={48} viewBox="0 0 48 48">
+                  <svg className="menu-card-ring" style={{ position: "absolute", top: 6, right: 6, transform: "rotate(-90deg)" }} width={48} height={48} viewBox="0 0 48 48">
                     <circle cx="24" cy="24" r={R} stroke="rgba(255,255,255,0.1)" strokeWidth="3" fill="none" />
                     <circle
                       cx="24" cy="24" r={R} stroke={p.color} strokeWidth="3" fill="none"
@@ -230,10 +231,12 @@ const PageMenu: React.FC<Props> = ({
                   </svg>
                 )}
 
-                <div style={{ fontSize: 34, marginBottom: 8 }}>{p.icon}</div>
-                <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 4 }}>{p.title}</div>
-                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", fontWeight: 600, letterSpacing: 2 }}>
-                  {String(i + 1).padStart(2, "0")}
+                <div className="menu-card-icon" style={{ fontSize: 34, marginBottom: 8, flexShrink: 0 }}>{p.icon}</div>
+                <div className="menu-card-body">
+                  <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 4 }}>{p.title}</div>
+                  <div style={{ fontSize: 11, color: "rgba(255,255,255,0.25)", fontWeight: 600, letterSpacing: 2 }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
                 </div>
 
                 {isActive && (
@@ -241,7 +244,7 @@ const PageMenu: React.FC<Props> = ({
                 )}
 
                 {isHovered && !gestureHeld && (
-                  <div style={{ position: "absolute", bottom: 6, left: 0, right: 0, textAlign: "center", fontSize: 10, color: "rgba(255,255,255,0.35)", letterSpacing: 1 }}>
+                  <div className="menu-card-hint" style={{ position: "absolute", bottom: 6, left: 0, right: 0, textAlign: "center", fontSize: 10, color: "rgba(255,255,255,0.35)", letterSpacing: 1 }}>
                     ✌️ or 🖐
                   </div>
                 )}
@@ -251,14 +254,8 @@ const PageMenu: React.FC<Props> = ({
 
           {/* Warmup overlay on the grid */}
           {!menuReady && (
-            <div style={{
-              position: "absolute", inset: -12, borderRadius: 20,
-              background: "rgba(8,8,15,0.55)", backdropFilter: "blur(4px)",
-              display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-              gap: 12,
-            }}>
-              {/* Countdown ring */}
-              <svg width={80} height={80} viewBox="0 0 80 80" style={{ transform: "rotate(-90deg)" }}>
+            <div className="menu-warmup-overlay">
+              <svg width={64} height={64} viewBox="0 0 80 80" style={{ transform: "rotate(-90deg)" }}>
                 <circle cx="40" cy="40" r="34" stroke="rgba(255,255,255,0.08)" strokeWidth="4" fill="none" />
                 <circle
                   cx="40" cy="40" r="34"
@@ -269,10 +266,10 @@ const PageMenu: React.FC<Props> = ({
                   style={{ transition: "stroke-dashoffset 0.2s linear" }}
                 />
               </svg>
-              <div style={{ position: "absolute", fontSize: 28, fontWeight: 900, color: "#f59e0b" }}>
+              <div style={{ position: "absolute", fontSize: 24, fontWeight: 900, color: "#f59e0b" }}>
                 {countdown}
               </div>
-              <div style={{ marginTop: 52, fontSize: 13, color: "rgba(255,255,255,0.5)", textAlign: "center" }}>
+              <div style={{ marginTop: 44, fontSize: 12, color: "rgba(255,255,255,0.5)", textAlign: "center" }}>
                 Change your gesture<br />
                 <span style={{ fontSize: 11, color: "rgba(255,255,255,0.3)" }}>to avoid accidental selection</span>
               </div>
