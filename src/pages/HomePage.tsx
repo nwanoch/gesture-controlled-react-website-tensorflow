@@ -4,6 +4,9 @@ interface Props {
   onStartCamera: () => void;
   modelStatus: "loading" | "loaded" | "error";
   cameraActive: boolean;
+  onNavigate?: (idx: number) => void;
+  currentPage?: number;
+  totalPages?: number;
 }
 
 const gestures = [

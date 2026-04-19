@@ -27,9 +27,10 @@ const GestureCursor: React.FC<Props> = ({ x, y, progress = 0, active = false, tw
         borderRadius: "50%",
         background: dotColor,
         border: `2px solid ${ringColor}`,
-        boxShadow: `0 0 16px ${glowColor}, 0 0 32px ${glowOuter}`,
+        boxShadow: `0 0 ${active ? 22 : 16}px ${glowColor}, 0 0 ${active ? 40 : 32}px ${glowOuter}`,
         position: "relative",
-        transition: "width 0.15s ease, height 0.15s ease, background 0.2s ease, border-color 0.2s ease",
+        transform: active ? "scale(1.06)" : "scale(1)",
+        transition: "width 0.15s ease, height 0.15s ease, background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease",
       }}>
         {progress > 0 && (
           <svg className="cursor-ring" style={{ position: "absolute", inset: -8, transform: "rotate(-90deg)" }} width="52" height="52" viewBox="0 0 52 52">
