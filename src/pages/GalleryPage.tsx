@@ -27,7 +27,7 @@ const GalleryPage: React.FC = () => {
       <div className="orb" style={{ width: 500, height: 500, background: "#f59e0b", opacity: 0.1, top: -100, left: "40%" }} />
 
       <div className="page-scroll" style={{ position: "relative", zIndex: 1 }}>
-        <div style={{ maxWidth: 1040, margin: "0 auto", padding: "80px 40px" }}>
+        <div className="page-inner page-inner--wide">
 
           {/* ── Header ── */}
           <div style={{ textAlign: "center", marginBottom: 48 }}>
@@ -59,7 +59,7 @@ const GalleryPage: React.FC = () => {
           </div>
 
           {/* ── Masonry grid ── */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gridAutoRows: "160px", gap: 16 }}>
+          <div className="gallery-masonry">
             {visible.map((item, i) => (
               <div
                 key={item.title}
@@ -97,7 +97,7 @@ const GalleryPage: React.FC = () => {
           {/* ── About the collection ── */}
           <div style={{ marginTop: 60 }}>
             <h3 style={{ fontSize: 24, fontWeight: 900, marginBottom: 20, textAlign: "center" }}>About the collection</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+            <div className="r-grid-2" style={{ gap: 24 }}>
               <div className="glass" style={{ borderRadius: 16, padding: 28 }}>
                 <div style={{ fontSize: 28, marginBottom: 12 }}>🎨</div>
                 <h4 style={{ fontWeight: 700, marginBottom: 8 }}>AI Generation Process</h4>

@@ -27,7 +27,7 @@ const ContactPage: React.FC = () => {
       <div className="orb" style={{ width: 400, height: 400, background: "#06b6d4", bottom: -100, right: 0 }} />
 
       <div className="page-scroll" style={{ position: "relative", zIndex: 1 }}>
-        <div style={{ maxWidth: 960, margin: "0 auto", padding: "80px 40px" }}>
+        <div className="page-inner page-inner--contact" style={{ paddingBottom: "calc(var(--page-section-y) + env(safe-area-inset-bottom, 0px))" }}>
 
           {/* ── Header ── */}
           <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -38,7 +38,7 @@ const ContactPage: React.FC = () => {
           </div>
 
           {/* ── Form + info ── */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, marginBottom: 60 }}>
+          <div className="r-split" style={{ gap: 40, marginBottom: 60 }}>
             {/* Form */}
             <div className="glass" style={{ borderRadius: 24, padding: 36 }}>
               {sent ? (

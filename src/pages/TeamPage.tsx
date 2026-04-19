@@ -31,7 +31,7 @@ const TeamPage: React.FC = () => (
     <div className="orb" style={{ width: 400, height: 400, background: "#6366f1", bottom: -100, left: 0 }} />
 
     <div className="page-scroll" style={{ position: "relative", zIndex: 1 }}>
-      <div style={{ maxWidth: 1000, margin: "0 auto", padding: "80px 40px" }}>
+      <div className="page-inner">
 
         {/* ── Header ── */}
         <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -45,7 +45,7 @@ const TeamPage: React.FC = () => (
         </div>
 
         {/* ── Team grid ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 80 }}>
+        <div className="r-grid-3" style={{ gap: 20, marginBottom: 80 }}>
           {team.map((member, i) => (
             <div key={member.name} className="glass" style={{ borderRadius: 20, padding: 28, position: "relative", overflow: "hidden", animationDelay: `${i * 0.07}s` }}>
               <div style={{ position: "absolute", inset: 0, background: `radial-gradient(circle at 80% -20%,${member.from}18,transparent 60%)`, pointerEvents: "none" }} />
@@ -76,7 +76,7 @@ const TeamPage: React.FC = () => (
         <div style={{ marginBottom: 80 }}>
           <p style={{ fontSize: 12, letterSpacing: 4, textTransform: "uppercase", color: "#6366f1", marginBottom: 12, textAlign: "center" }}>Benefits</p>
           <h3 style={{ fontSize: "clamp(24px,3.5vw,38px)", fontWeight: 900, textAlign: "center", marginBottom: 40 }}>What we offer</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 }}>
+          <div className="r-grid-3">
             {perks.map(p => (
               <div key={p.title} className="glass" style={{ borderRadius: 16, padding: "24px 20px" }}>
                 <div style={{ fontSize: 32, marginBottom: 12 }}>{p.icon}</div>
@@ -93,12 +93,12 @@ const TeamPage: React.FC = () => (
           <h3 style={{ fontSize: "clamp(24px,3.5vw,38px)", fontWeight: 900, textAlign: "center", marginBottom: 40 }}>Open positions</h3>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {openRoles.map(r => (
-              <div key={r.title} className="glass" style={{ borderRadius: 14, padding: "20px 24px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div key={r.title} className="glass roles-row" style={{ borderRadius: 14, padding: "20px 24px" }}>
                 <div>
                   <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 4 }}>{r.title}</div>
                   <div style={{ fontSize: 13, color: "rgba(255,255,255,0.35)" }}>{r.location} &nbsp;·&nbsp; {r.type}</div>
                 </div>
-                <button style={{
+                <button type="button" style={{
                   padding: "10px 22px", borderRadius: 99, border: `1px solid ${r.color}66`,
                   background: `${r.color}18`, color: r.color, fontSize: 13, fontWeight: 600, cursor: "pointer",
                   flexShrink: 0,

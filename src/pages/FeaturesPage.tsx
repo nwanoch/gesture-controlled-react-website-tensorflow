@@ -37,7 +37,7 @@ const FeaturesPage: React.FC = () => (
     <div className="orb" style={{ width: 400, height: 400, background: "#6366f1", bottom: -100, left: 0 }} />
 
     <div className="page-scroll" style={{ position: "relative", zIndex: 1 }}>
-      <div style={{ maxWidth: 1000, margin: "0 auto", padding: "80px 40px" }}>
+      <div className="page-inner">
 
         {/* ── Header ── */}
         <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -48,7 +48,7 @@ const FeaturesPage: React.FC = () => (
         </div>
 
         {/* ── Features grid ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 80 }}>
+        <div className="r-grid-3" style={{ gap: 20, marginBottom: 80 }}>
           {features.map((f, i) => (
             <div key={f.title} className="glass" style={{ borderRadius: 20, padding: 28, position: "relative", overflow: "hidden", animationDelay: `${i * 0.08}s` }}>
               <div style={{ position: "absolute", inset: 0, background: `radial-gradient(circle at 10% 10%,${f.color}18,transparent 60%)`, pointerEvents: "none" }} />
@@ -68,7 +68,7 @@ const FeaturesPage: React.FC = () => (
           <h3 style={{ fontSize: "clamp(24px,3.5vw,38px)", fontWeight: 900, textAlign: "center", marginBottom: 40 }}>
             How gestures compare to other inputs
           </h3>
-          <div className="glass" style={{ borderRadius: 20, overflow: "hidden" }}>
+          <div className="glass compare-table-wrap" style={{ borderRadius: 20, overflow: "hidden" }}>
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
@@ -97,7 +97,7 @@ const FeaturesPage: React.FC = () => (
         <div>
           <p style={{ fontSize: 12, letterSpacing: 4, textTransform: "uppercase", color: "#10b981", marginBottom: 12, textAlign: "center" }}>Roadmap</p>
           <h3 style={{ fontSize: "clamp(24px,3.5vw,38px)", fontWeight: 900, textAlign: "center", marginBottom: 40 }}>What's coming next</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }}>
+          <div className="r-grid-4">
             {roadmap.map((r, i) => (
               <div key={r.q} className="glass" style={{ borderRadius: 16, padding: 24, opacity: 0.5 + i * 0.15 }}>
                 <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 2, color: "#10b981", marginBottom: 16 }}>{r.q}</div>

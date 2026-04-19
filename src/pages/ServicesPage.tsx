@@ -40,7 +40,7 @@ const ServicesPage: React.FC = () => (
     <div className="orb" style={{ width: 400, height: 400, background: "#06b6d4", bottom: -100, right: 0 }} />
 
     <div className="page-scroll" style={{ position: "relative", zIndex: 1 }}>
-      <div style={{ maxWidth: 1000, margin: "0 auto", padding: "80px 40px" }}>
+      <div className="page-inner">
 
         {/* ── Header ── */}
         <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -51,7 +51,7 @@ const ServicesPage: React.FC = () => (
         </div>
 
         {/* ── Pricing cards ── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 80 }}>
+        <div className="r-grid-3" style={{ gap: 20, marginBottom: 80 }}>
           {services.map(s => (
             <div key={s.title} className="glass" style={{
               borderRadius: 24, padding: 32, position: "relative", overflow: "hidden",
@@ -94,15 +94,13 @@ const ServicesPage: React.FC = () => (
         <div style={{ marginBottom: 80 }}>
           <p style={{ fontSize: 12, letterSpacing: 4, textTransform: "uppercase", color: "#06b6d4", marginBottom: 12, textAlign: "center" }}>Process</p>
           <h3 style={{ fontSize: "clamp(24px,3.5vw,38px)", fontWeight: 900, textAlign: "center", marginBottom: 40 }}>How we work</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16 }}>
+          <div className="r-grid-4">
             {process.map((p, i) => (
               <div key={p.step} className="glass" style={{ borderRadius: 16, padding: 24, position: "relative" }}>
                 <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, color: "#06b6d4", marginBottom: 12 }}>{p.step}</div>
                 <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 10 }}>{p.title}</div>
                 <div style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", lineHeight: 1.6 }}>{p.desc}</div>
-                {i < process.length - 1 && (
-                  <div style={{ position: "absolute", right: -14, top: "50%", transform: "translateY(-50%)", fontSize: 18, color: "rgba(99,102,241,0.4)" }}>→</div>
-                )}
+                {i < process.length - 1 && <div className="step-flow-arrow">→</div>}
               </div>
             ))}
           </div>
@@ -112,7 +110,7 @@ const ServicesPage: React.FC = () => (
         <div>
           <p style={{ fontSize: 12, letterSpacing: 4, textTransform: "uppercase", color: "#a855f7", marginBottom: 12, textAlign: "center" }}>Testimonials</p>
           <h3 style={{ fontSize: "clamp(24px,3.5vw,38px)", fontWeight: 900, textAlign: "center", marginBottom: 40 }}>What clients say</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
+          <div className="r-grid-3" style={{ gap: 20 }}>
             {testimonials.map(t => (
               <div key={t.name} className="glass" style={{ borderRadius: 20, padding: 28 }}>
                 <div style={{ fontSize: 28, marginBottom: 16, color: "#f59e0b" }}>❝</div>
@@ -137,7 +135,7 @@ const ServicesPage: React.FC = () => (
         </div>
 
         {/* ── CTA ── */}
-        <div style={{ textAlign: "center", marginTop: 64, padding: "48px 40px", borderRadius: 24, background: "linear-gradient(135deg,rgba(99,102,241,0.1),rgba(168,85,247,0.1))", border: "1px solid rgba(99,102,241,0.2)" }}>
+        <div style={{ textAlign: "center", marginTop: 64, padding: "48px var(--page-pad)", borderRadius: 24, background: "linear-gradient(135deg,rgba(99,102,241,0.1),rgba(168,85,247,0.1))", border: "1px solid rgba(99,102,241,0.2)" }}>
           <h3 style={{ fontSize: 28, fontWeight: 900, marginBottom: 12 }}>Ready to build something remarkable?</h3>
           <p style={{ color: "rgba(255,255,255,0.4)", marginBottom: 28, fontSize: 15 }}>No commitment required — start with a free 30-minute discovery call.</p>
           <button style={{ padding: "16px 40px", borderRadius: 99, border: "none", background: "linear-gradient(135deg,#6366f1,#a855f7)", color: "white", fontSize: 16, fontWeight: 700, cursor: "pointer", boxShadow: "0 0 40px rgba(99,102,241,0.4)" }}>
